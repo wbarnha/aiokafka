@@ -44,7 +44,7 @@ if [ ! -z "$SASL_MECHANISMS" ]; then
 
     OPTIONS="$OPTIONS --override sasl.enabled.mechanisms=$SASL_MECHANISMS"
     OPTIONS="$OPTIONS --override sasl.kerberos.service.name=kafka"
-    OPTIONS="$OPTIONS --override authorizer.class.name=kafka.security.auth.SimpleAclAuthorizer"
+    OPTIONS="$OPTIONS --override authorizer.class.name=kafka.security.authorizer.AclAuthorizer"
     OPTIONS="$OPTIONS --override allow.everyone.if.no.acl.found=true"
     export KAFKA_OPTS="-Djava.security.auth.login.config=/etc/kafka/$SASL_JAAS_FILE"
 
